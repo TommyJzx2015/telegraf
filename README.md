@@ -4,6 +4,7 @@ for example
 ################
 # Master         #
 ################
+
 [[inputs.jolokia2_agent]]
   urls = ["http://localhost:7778/jolokia"]
 
@@ -12,14 +13,14 @@ for example
 		mbean ="Hadoop:name=Master,service=HBase,sub=Server"
 		tag_keys = ["name", "sub"]
   [[jolokia2_agent.metric.rules]]
-    pattern = "(tag.isActiveMaster) : (true)"
-		fieldName = "isActiveMaster"
-		value = 1
+    		pattern = "(tag.isActiveMaster) : (true)"
+    		fieldName = "isActiveMaster"
+   		value = 1
   [[jolokia2_agent.metric.rules.labels]]
 		HAState = "active"
     
   [[jolokia2_agent.metric.rules]]
-    pattern = "(tag.isActiveMaster) : (false)"
+    		pattern = "(tag.isActiveMaster) : (false)"
 		fieldName = "isActiveMaster"
 		value = 0
   [[jolokia2_agent.metric.rules.labels]]
@@ -28,6 +29,7 @@ for example
 ################
 # Regionserver   #
 ################
+
 [[inputs.jolokia2_agent]]
   urls = ["http://localhost:8778/jolokia"]
 
