@@ -12,10 +12,12 @@ for example
     name = "Hadoop_HBase"
     mbean ="Hadoop:name=Master,service=HBase,sub=Server"
     tag_keys = ["name", "sub"]
+    
   [[jolokia2_agent.metric.rules]]
     pattern = "(tag.isActiveMaster) : (true)"
     fieldName = "isActiveMaster"
     value = 1
+    
   [[jolokia2_agent.metric.rules.labels]]
     HAState = "active"
     
@@ -23,8 +25,10 @@ for example
     pattern = "(tag.isActiveMaster) : (false)"
     fieldName = "isActiveMaster"
     value = 0
+    
   [[jolokia2_agent.metric.rules.labels]]
    HAState = "active"
+ 
  
 ################
 # Regionserver   #
