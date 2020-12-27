@@ -9,28 +9,29 @@ for example
   urls = ["http://localhost:7778/jolokia"]
 
   [[jolokia2_agent.metric]]
-		name = "Hadoop_HBase"
-		mbean ="Hadoop:name=Master,service=HBase,sub=Server"
-		tag_keys = ["name", "sub"]
+    name = "Hadoop_HBase"
+    mbean ="Hadoop:name=Master,service=HBase,sub=Server"
+    tag_keys = ["name", "sub"]
   [[jolokia2_agent.metric.rules]]
-    		pattern = "(tag.isActiveMaster) : (true)"
-    		fieldName = "isActiveMaster"
-   		value = 1
+    pattern = "(tag.isActiveMaster) : (true)"
+    fieldName = "isActiveMaster"
+    value = 1
   [[jolokia2_agent.metric.rules.labels]]
-		HAState = "active"
+    HAState = "active"
     
   [[jolokia2_agent.metric.rules]]
-    		pattern = "(tag.isActiveMaster) : (false)"
-		fieldName = "isActiveMaster"
-		value = 0
+    pattern = "(tag.isActiveMaster) : (false)"
+    fieldName = "isActiveMaster"
+    value = 0
   [[jolokia2_agent.metric.rules.labels]]
-		HAState = "active"`
+   HAState = "active"
  
 ################
 # Regionserver   #
 ################
 
 [[inputs.jolokia2_agent]]
+
   urls = ["http://localhost:8778/jolokia"]
 
 	[[jolokia2_agent.metric]]
